@@ -6,7 +6,7 @@ This is mostly going to be a free-form discussion of what we want to achieve, an
 
 As more people get interested in learning to code/program/hack/etc, and more of the collaboration moves to remote/distributed teams and schools, we want to give people a ready-made scaffold for setting up their own learning infrastructure.
 
-Ideally, if there's somebody who wants to teach, and somebody who wants to learn, you've basically got a class. If there are multiple people who want to learn, all the better. In the interest of making such ad-hoc groupings fast and easy to set up, we decided to try and create a very basic School-As-Code (SaC).
+Basically, if there's somebody who wants to learn, you've got a study group. If there are multiple people who want to learn, all the better. In the interest of making such ad-hoc groupings fast and easy to set up, we decided to try and create a very basic School-As-Code (SaC).
 
 Given that GitHub repos and organizations are free and a natural place for new learners to actually practice both source control and code review, setting up that infrastructure in GitHub is an obvious choice.
 
@@ -21,11 +21,24 @@ To assist in this, we want the following bare minimum "assets" set up for the cl
 ### Artifacts
 
 - "home" repository for the organization. This will be the "landing page" for the class, incorporating all the information about the class, as well as links to the different materials, project boards, etc. It will be created from a template for the time being, but would be extendable with custom templates some point in the future.
+
+We want a home repository because we want a landing page that has links to all the other things. It's the table-of-contents for the study group.
+
 - "project board" for teachers and students to track progress with cards. These cards will be derived from templates for now, but similar to the static template used above, we could even see cards auto-generated for students at some point dynamically.
+
+We need project boards so that learners have a structured way to approach tasks. It also doubles conveniently as an introduction into the way that working programmers track progress, with boards such as trello or jira.
+
 - admin repo used for the admin(s) to track admin type stuff. It's possible the there's only one teacher, who is also the admin.
+
+TODO - why do we need an admin repo? If we don't necessarily need it in the case of a 1-person study group, should it be taken out of the default, and added as an optional repo?
+
 - teachers repo used for more class-oriented needs.
+
+TODO - same questions as the admin repo above.
+
 - student repos used for students to store and share their progress on the assignments.
 
+We want at least one starter repo clearly marked as a total sandbox/playground. People should feel like the software and repos are theirs to mess around with and recreate as they see fit. This also function as a way to introduce learners to source control, and the different ways that working programmers interact with it (eg, via the UI, the cli, VS Code)
 
 ### Scripts
 
@@ -41,7 +54,17 @@ It's also possible that the automation will create artifacts outside of GitHub (
 
 ## Users
 
-There are two key user groups that we're interested in: teachers/admins and students.
+There are two key user groups that we're interested in: teachers/admins and learners, however the learners are primary.
+
+The study group works without explicit teachers, but the fundamental unit we're targeting is the learner. We'll probably get an MVP that's the test case of just one person who wants to learn on their own, and then perhaps later think about how to customize the process so that it could be equally useful for teachers to use as extracurricular materials, or to use as a complete curriculum platform in a very modular and configurable way.
+
+### Learners
+
+We have a couple different scenarios in terms of the learners: the fundamental unit we're targeting is a study group of one, and in this sense, we want everything to work for somebody without a lot of experience in the very medium we're building this in, GitHub. So while the eventual product will have a lot of the implementation details and automation abstracted away, we might need to make the MVP target learners who are able to interact with GitHub and the CLI already.
+
+The second scenario is learners who find themselves in a course managed by a more experienced teacher, in which case, we can design towards the considerations laid out in the Teachers/Admins section below.
+
+To the extent that we're interested in designing for students in this latter scario, they probably don't play a huge role in determining our design, though it would be nice if they have an easy way to modify their participation themselves via automation. This might take the form of creating another repo for themselves or even dynamically generating a new project board task card for themselves if they find their assigned work too easy (self-directed differentiated instruction?).
 
 ### Teachers/Admins
 
@@ -66,10 +89,6 @@ This option conveniently side-steps the need to even know anything about either 
 ---
 
 So it seems in general that we need to decide on what will get us the fastest feedback/development in the short term, given that even if we were to reimplement everything from NodeJS to Python (or vice-versa), it wouldn't be very significant, and so any decision we make now is very easily reversible in the near to medium term anyway.
-
-### Students
-
-To the extent that we're interested in designing for students, they probably don't play a huge role in determining our design, though it would be nice if they have an easy way to modify their participation themselves via automation. This might take the form of creating another repo for themselves or even dynamically generating a new project board task card for themselves if they find their assigned work too easy (self-directed differentiated instruction?).
 
 ## Scoping and Timeline
 
